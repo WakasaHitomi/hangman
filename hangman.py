@@ -1,5 +1,5 @@
 def get_puzzle():
-    pass
+    return "velocity"
 
 def get_solved(puzzle, guesses):
     solved = ""
@@ -13,15 +13,20 @@ def get_solved(puzzle, guesses):
     return solved
 
 def get_guess():
-    pass
+    letter = input ("Guess a letter")
+    return letter
 
 def display_board(solved):
-    pass
+    print(solved)
 
 def show_result():
-    pass
+    print("You've Guessed it!")
     
 def play():
-    pass
-    
+    puzzle = get_puzzle()
+    guesses = ""
+
+    guesses += get_guess()
+    solved = get_solved(puzzle, guesses)
+    display_board(solved)
 play()
