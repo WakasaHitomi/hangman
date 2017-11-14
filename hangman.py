@@ -63,17 +63,43 @@ def display_board(solved, guesses):
 
 def show_result():
     print("You've Guessed it!")
-    
+
+    while True:
+        decision = input("Would you like to play again? (y/n) ")
+        decision = decision.lower()
+
+        if decision == 'y' or decision == 'yes':
+            return True
+        elif descision == 'n' or descision == 'no':
+            return False
+        else:
+            print("You're response was incorrect.")
+
 def play():
-    start_screen()
-    
+
     puzzle = get_puzzle()
     guesses = ""
     solved = get_solved(puzzle, guesses)
     display_board(solved, guesses)
 
-    while solved !=  puzzle:
+    while playing:
+        solved !=  puzzle
         guesses += get_guess()
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
-play()
+
+        strikes = 0
+        limit = 10
+
+        if letter not in puzzle
+
+start_screen()
+
+playing = True
+
+while playing:
+    play()
+
+show_results()
+
+
