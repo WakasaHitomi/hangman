@@ -1,7 +1,7 @@
 #HangMan's_Noose
 #Dammorah J.
 
-limit = 10
+limit = 8
 
 def start_screen():
     print("   |_______________``\           ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ")
@@ -61,6 +61,11 @@ def get_guess():
     letter = letter.lower()
     return letter
 
+def show_credits():
+    print("Origial base for Hangman game...... J. Cooper")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Modified and Recreated by........WakasaHitomi")
+
 def display_board(solved, guesses):
     print(solved, guesses)
 
@@ -77,8 +82,8 @@ def show_result(strikes, limit):
 
         if decision == 'y' or decision == 'yes':
             return True
-        elif descision == 'n' or descision == 'no':
-            return False
+        elif decision == 'n' or decision == 'no':
+            show_credits()
         else:
             print("You're response was incorrect.")
 
@@ -114,5 +119,4 @@ while playing:
     playing = play_again()
 
 show_result(strikes, limit)
-
 
