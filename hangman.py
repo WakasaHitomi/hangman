@@ -1,5 +1,8 @@
 #HangMan's_Noose
 #Dammorah J.
+
+limit = 10
+
 def start_screen():
     print("   |_______________``\           ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ")
     print("    [/]           [  ]          ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌")
@@ -61,8 +64,12 @@ def get_guess():
 def display_board(solved, guesses):
     print(solved, guesses)
 
-def show_result():
-    print("You've Guessed it!")
+def show_result(strikes, limit):
+    if strikes <= limit:
+        print("You've Guessed it!")
+
+    if strikes > limit:
+        print("You have taken an L. Good try though.")
 
     while True:
         decision = input("Would you like to play again? (y/n) ")
@@ -76,7 +83,8 @@ def show_result():
             print("You're response was incorrect.")
 
 def play():
-
+    strikes = 0
+    
     puzzle = get_puzzle()
     guesses = ""
     solved = get_solved(puzzle, guesses)
@@ -88,10 +96,14 @@ def play():
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
 
-        strikes = 0
-        limit = 10
+        if guesses not in puzzle:
+            strikes += 1
 
-        if letter not in puzzle
+        if strikes > limit:
+            show_result(strikes, limit)
+
+        if puzzle == solved:
+            show_result(strikes, limit)
 
 start_screen()
 
@@ -99,7 +111,8 @@ playing = True
 
 while playing:
     play()
+    playing = play_again()
 
-show_results()
+show_result(strikes, limit)
 
 
