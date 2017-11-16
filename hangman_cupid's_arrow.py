@@ -100,6 +100,16 @@ def show_result(strikes, limit):
         else:
             print("You're response was incorrect.")
 
+def mistakes(strike, limit):
+    if strikes = 1
+        print(",d88b.d88b,")
+        print("88888888888")
+        print("`Y8888888Y'")
+        print("  `Y888Y'  ")
+        print("    `Y'    ")
+        print("
+        print("
+
 def play():
     strikes = 0
     
