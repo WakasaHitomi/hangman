@@ -77,7 +77,8 @@ def show_credits():
     print(" ")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print(" ")
-    print("Modified and Recreated by........WakasaHitomi")
+    print("Modified and Recreated by........Dammorah")
+    print("November 21, 2017")
 
 def display_board(solved, guesses):
     print(solved, guesses)
@@ -196,7 +197,7 @@ def play():
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
         
-        if letter or guesses not in puzzle:
+        if guesses not in puzzle:
             strikes += 1
 
         mistakes(strikes, limit)
