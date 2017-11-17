@@ -181,10 +181,10 @@ def mistakes(strikes, limit):
         print("|     `Y'           `Y'           `Y'             `Y'           `Y'            `Y'            `Y'            `Y'")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0 out of " + str(limit) + " strikes left ( this is your last guess, make it good ) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
+        
 def play():
     strikes = 0
-    
+
     puzzle = get_puzzle()
     guesses = ""
     solved = get_solved(puzzle, guesses)
@@ -196,8 +196,9 @@ def play():
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
         
-        if guesses not in puzzle:
+        if letter or guesses not in puzzle:
             strikes += 1
+
         mistakes(strikes, limit)
 
         if strikes > limit:
