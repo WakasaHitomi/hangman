@@ -1,6 +1,7 @@
 #Cupid's Arrow
 #Dammorah J.
 
+import random
 limit = 8
 
 def start_screen():
@@ -42,8 +43,10 @@ def start_screen():
     print(" ")
 
 def get_puzzle():
-    return "velocity"
-
+    puzzle = ["velocity", "heart", "insanity", "disaster", "tragedy", "misery", "hope", "depression", "embrace", "romance", "cherrish", "butterflies"]
+    return puzzle[random.randint(0,11)]
+    print("")
+    print("")
 def get_solved(puzzle, guesses):
     solved = ""
 
@@ -55,12 +58,23 @@ def get_solved(puzzle, guesses):
 
     return solved
 
+    print("")
+    print("")
+
 def get_guess():
     letter = input ("Guess a letter")
     letter = letter.lower()
-    return letter
+    if len(letter) == 1 and letter.isalpha() == True:
+        return letter
+    else:
+        print("Please enter a single letter and not a number or symbol?")
+        return get_guess()
+    print("")
+    print("")
 
 def show_credits():
+    print("")
+    print("")
     print("Origial base for Hangman game...... J. Cooper")
     print(" ")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -77,19 +91,25 @@ def show_credits():
     print(" ")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print(" ")
-    print("Modified and Recreated by........Dammorah")
-    print("November 21, 2017")
+    print("Modified and Recreated by........WakasaHitomi")
+    print("")
+    print("")
 
 def display_board(solved, guesses):
     print(solved, guesses)
+    print("")
+    print("")
 
 def show_result(strikes, limit):
     if strikes <= limit:
         print("You've Guessed it!")
+        play_again()
 
     if strikes > limit:
         print("You have taken an L. Good try though.")
+        play_again()
 
+def play_again():
     while True:
         decision = input("Would you like to play again? (y/n) ")
         decision = decision.lower()
@@ -101,6 +121,9 @@ def show_result(strikes, limit):
         else:
             print("You're response was incorrect.")
 
+    print("")
+    print("")
+
 def mistakes(strikes, limit):
     if strikes == 0:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, ,d88b.d88b, ,d88b.d88b,  ,d88b.d88b,  ,d88b.d88b,  ,d88b.d88b,     ")
@@ -110,6 +133,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'         `Y'         `Y'          `Y'          `Y'          `Y'  ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 8 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
         
     if strikes == 1:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, ,d88b.d88b, ,d88b.d88b,  ,d88b.d88b,  ,d88b.d88b, |,d88b/ /d88b,     ")
@@ -119,6 +144,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'         `Y'         `Y'          `Y'          `Y'     |     `Y'  ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 7 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 2:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, ,d88b.d88b, ,d88b.d88b,  ,d88b.d88b,  |,d88b/ /d88b, ,d88b/ /d88b,    ")
@@ -128,6 +155,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'         `Y'         `Y'          `Y'      |     `Y'           `Y' ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 6 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 3:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, ,d88b.d88b, ,d88b.d88b,  |,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,   ")
@@ -137,6 +166,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'         `Y'         `Y'      |     `Y'           `Y'           `Y' ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 5 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 4:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, ,d88b.d88b, |,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b,  ")
@@ -146,6 +177,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'         `Y'     |     `Y'           `Y'           `Y'             `Y'  ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 5:
         print(",d88b.d88b,  ,d88b.d88b, ,d88b.d88b, |,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b, ,d88b/ /d88b, ")
@@ -155,6 +188,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'         `Y'     |     `Y'           `Y'           `Y'             `Y'           `Y'    ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 3 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 6:
         print(",d88b.d88b,  ,d88b.d88b, |,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ")
@@ -164,6 +199,8 @@ def mistakes(strikes, limit):
         print("    `Y'          `Y'     |     `Y'           `Y'           `Y'             `Y'           `Y'            `Y' ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 7:
         print(",d88b.d88b, |,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b,  ")
@@ -173,6 +210,8 @@ def mistakes(strikes, limit):
         print("    `Y'     |     `Y'           `Y'           `Y'             `Y'           `Y'            `Y'            `Y'   ")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1 out of " + str(limit) + " strikes left ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+        print("")
 
     if strikes == 8:
         print("|,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b, ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b,  ,d88b/ /d88b, ")
@@ -182,10 +221,11 @@ def mistakes(strikes, limit):
         print("|     `Y'           `Y'           `Y'             `Y'           `Y'            `Y'            `Y'            `Y'")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~ 0 out of " + str(limit) + " strikes left ( this is your last guess, make it good ) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~" + str(strikes) + " wrong guesses ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        
+        print("")
+        print("")
 def play():
     strikes = 0
-
+    
     puzzle = get_puzzle()
     guesses = ""
     solved = get_solved(puzzle, guesses)
@@ -197,9 +237,8 @@ def play():
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
         
-        if guesses not in puzzle:
+        if guesses[-1] not in puzzle:
             strikes += 1
-
         mistakes(strikes, limit)
 
         if strikes > limit:
