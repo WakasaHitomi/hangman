@@ -94,19 +94,22 @@ def show_credits():
     print("Modified and Recreated by........WakasaHitomi")
     print("")
     print("")
+    exit()
 
 def display_board(solved, guesses):
     print(solved, guesses)
     print("")
     print("")
 
-def show_result(strikes, limit):
+def show_result(strikes, limit, puzzle):
     if strikes <= limit:
         print("You've Guessed it!")
+        print("")
         play_again()
 
     if strikes > limit:
-        print("You have taken an L. Good try though.")
+        print("You have taken an L. Good try though. Your word was " + str(puzzle) + ".")
+        print("")
         play_again()
 
 def play_again():
@@ -115,7 +118,7 @@ def play_again():
         decision = decision.lower()
 
         if decision == 'y' or decision == 'yes':
-            return True
+            play() == True
         elif decision == 'n' or decision == 'no':
             show_credits()
         else:
@@ -242,10 +245,12 @@ def play():
         mistakes(strikes, limit)
 
         if strikes > limit:
-            show_result(strikes, limit)
+            show_result(strikes, limit, puzzle)
 
         if puzzle == solved:
-            show_result(strikes, limit)
+            show_result(strikes, limit, puzzle)
+
+    show_result(strikes, limit, puzzle)
 
 start_screen()
 
@@ -254,5 +259,3 @@ playing = True
 while playing:
     play()
     playing = play_again()
-
-show_result(strikes, limit)
